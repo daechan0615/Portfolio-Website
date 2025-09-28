@@ -11,6 +11,7 @@ export const projects = [
       "PostgresSQL",
       "Python",
       "Scikit-Learn",
+      "JavaScript",
       "React",
       "TailwindCSS",
       "Docker",
