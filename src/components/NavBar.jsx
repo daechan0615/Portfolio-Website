@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -35,6 +36,7 @@ const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between">
+        {/* Left: Logo */}
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#home"
@@ -45,34 +47,37 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop ver */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            >
-              {item.name}
-            </a>
-          ))}
+        {/* Center: Desktop Navigation */}
+        <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
+          <div className="flex space-x-8">
+            {navItems.map((item, key) => (
+              <a
+                key={key}
+                href={item.href}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
         </div>
 
-        {/* Mobile ver */}
-
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-[60] relative"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {" "}
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
-        </button>
+        {/* Right: Controls - Theme Toggle + Mobile Menu */}
+        <div className="flex items-center space-x-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="lg:hidden p-2 text-foreground z-[60] relative"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         <div
           className={cn(
             "fixed top-0 left-0 w-full h-screen bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
+            "transition-all duration-300 lg:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
