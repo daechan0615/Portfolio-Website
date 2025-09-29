@@ -1,23 +1,54 @@
 import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import emailJs from "@emailjs/browser";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
+
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  const form = useRef();
 
   const handleSubmit = (e) => {
-    // TODO: implement Mail sender
     e.preventDefault();
 
     setIsSubmitting(true);
+    setError(false);
+
+    emailJs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+        publicKey: PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          console.log("EMAIL SUCCESSFULLY SENT!" + form.current);
+        },
+        (error) => {
+          console.log("EMAIL SEND FAILED...", error);
+          setError(true);
+        }
+      );
 
     setTimeout(() => {
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for your message. I'll get back to you ASAP!",
-      });
+      toast(
+        error
+          ? {
+              title: "Message send failed...",
+              description:
+                "Sending your message has failed due to an unexpected issue. Please try again later!",
+            }
+          : {
+              title: "Message Sent Successfully!",
+              description:
+                "Thank you for your message. I'll get back to you ASAP!",
+            }
+      );
       setIsSubmitting(false);
     }, 1500);
   };
@@ -103,19 +134,18 @@ const ContactSection = () => {
           >
             <h3 className="text-2xl font-semibold mb-6"> Send a Message </h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" ref={form}>
               <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
-                  Your Name{" "}
+                  Your Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="from_name"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Daechan Eom..."
@@ -127,13 +157,12 @@ const ContactSection = () => {
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Your Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="from_email"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="example@mail.com"
@@ -145,13 +174,12 @@ const ContactSection = () => {
                   htmlFor="subject"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Subject
                 </label>
                 <input
                   type="text"
                   id="subject"
-                  name="subject"
+                  name="title"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Title..."
