@@ -16,12 +16,16 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10); // height of the navbar
+      setIsScrolled(window.scrollY > 10);
+      // Close mobile menu when scrolling
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMenuOpen]);
 
   return (
     <nav
@@ -58,7 +62,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
+          className="md:hidden p-2 text-foreground z-[60] relative"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {" "}
@@ -67,7 +71,7 @@ const Navbar = () => {
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed top-0 left-0 w-full h-screen bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
