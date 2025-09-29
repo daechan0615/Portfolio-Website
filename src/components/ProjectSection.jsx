@@ -20,7 +20,7 @@ const ProjectSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover "
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -30,7 +30,7 @@ const ProjectSection = () => {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col h-full">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, key) => (
                     <span
@@ -43,10 +43,10 @@ const ProjectSection = () => {
                 </div>
 
                 <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4 flex-grow">
                   {project.descrition}
                 </p>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-auto">
                   <div className="flex space-x-3">
                     {project.appUrl && (
                       <a
