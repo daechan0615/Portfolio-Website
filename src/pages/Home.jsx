@@ -1,12 +1,12 @@
-import ThemeToggle from "../components/ThemeToggle";
-import StarBackground from "../components/StarBackground";
-import Navbar from "../components/NavBar";
-import HomeSection from "../components/HomeSection";
-import AboutSection from "../components/AboutSection";
-import SkillsSection from "../components/SkillsSection";
-import ProjectSection from "../components/ProjectSection";
-import ContactSection from "../components/ContactSection";
-import Footer from "../components/Footer";
+import ThemeToggle from "@/components/ThemeToggle";
+import StarBackground from "@/components/StarBackground";
+import Navbar from "@/components/NavBar";
+import HomeSection from "@/components/Home/HomeSection";
+import AboutSection from "@/components/About/AboutSection";
+import SkillsSection from "@/components/Skills/SkillsSection";
+import ProjectSection from "@/components/Project/ProjectSection";
+import ContactSection from "@/components/Contact/ContactSection";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
