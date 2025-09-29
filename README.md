@@ -8,7 +8,7 @@
 Welcome to my coding portfolio! This web application is built using ReactJs with TailwindCSS, showcasing my skills, projects and achievements in the field of full-stack development.
 You can view the website [here!](https://www.daechaneom.com/)
 
-<img width="1160" alt="Screenshot" scr="https://github.com/daechan0615/Portfolio-Website/blob/main/public/daechan-eom-portfolio.png">
+<img width="1160" alt="Screenshot" scr="https://github.com/daechan0615/Portfolio-Website/blob/main/public/daechan-eom-portfolio.png?raw=true">
 
 <em>Built with the tools and technologies:</em>
 
