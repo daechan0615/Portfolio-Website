@@ -142,6 +142,24 @@ const ContactSection = () => {
 
               <div>
                 <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium mb-2"
+                >
+                  {" "}
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="Title..."
+                />
+              </div>
+
+              <div>
+                <label
                   htmlFor="message"
                   className="block text-sm font-medium mb-2"
                 >

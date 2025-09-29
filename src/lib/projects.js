@@ -34,7 +34,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: "AutoAttend",
+    title: "FaceTrack",
     descrition:
       "A face recognition–based attendance system that automates check-ins using Python and OpenCV, ensuring accuracy and efficiency while eliminating the need for manual tracking.",
     image: "/projects/facetrack-project.png",

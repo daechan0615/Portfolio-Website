@@ -12,8 +12,11 @@ const ProjectSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some projects that ...
-          {/* TODO: Add description here */}
+          Here are some of the projects I’ve built that showcase my approach to
+          problem-solving, design, and full-stack development. Each project
+          reflects my focus on creating practical, impactful solutions while
+          continually learning and refining my skills. More projects will be
+          added as I continue exploring new ideas and technologies.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
