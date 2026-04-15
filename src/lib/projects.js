@@ -25,8 +25,7 @@ export const projects = [
   {
     id: 2,
     title: "Premier League",
-    descrition:
-      "A REST API for dynamically manipulating and presenting the match statistics for over 700 players",
+    descrition: "A REST API for dynamically manipulating and presenting the match statistics for over 700 players",
     image: "/projects/pl_bg_white.jpg",
     tags: ["Java", "Spring Boot", "REST API"],
     appUrl: "",
@@ -40,6 +39,6 @@ export const projects = [
     image: "/projects/facetrack-project.png",
     tags: ["Python", "OpenCV"],
     appUrl: "",
-    sourceCodeUrl: "",
+    sourceCodeUrl: "https://github.com/daechan0615/FaceRecognition",
   },
 ];
