@@ -37,11 +37,10 @@ const AboutSection = () => {
 								Get In Touch
 							</a>
 							<a
-								href="resume.pdf"
-								download="daechan_eom_resume-0405.pdf"
+								href="/daechan_eom_resume-0405.pdf"
+								download="Daechan_Eom_Resume.pdf"
 								className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
 							>
-								{/* TODO: Add Resume file here */}
 								Download Resume
 							</a>
 						</div>
