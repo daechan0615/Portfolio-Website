@@ -3,6 +3,7 @@ import Navbar from "@/components/NavBar";
 import HomeSection from "@/components/Home/HomeSection";
 import AboutSection from "@/components/About/AboutSection";
 import SkillsSection from "@/components/Skills/SkillsSection";
+import ExperienceSection from "@/components/Experience/ExperienceSection";
 import ProjectSection from "@/components/Project/ProjectSection";
 import ContactSection from "@/components/Contact/ContactSection";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ const Home = () => {
         <HomeSection />
         <AboutSection />
         <SkillsSection />
+        <ExperienceSection />
         <ProjectSection />
         <ContactSection />
       </main>
